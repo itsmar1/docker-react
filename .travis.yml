@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -t marwan/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true marwan/docker-react npm run test
